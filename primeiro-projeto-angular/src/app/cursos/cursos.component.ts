@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CursosComponent implements OnInit {
 
-  constructor() { }
+  blogGabriel: string;
+  cursos: string[] = ['MySql', 'Git', 'Java', 'Angular'];
+
+  constructor() { 
+    this.blogGabriel = 'https://blogcoreengineering.wordpress.com/';
+  }
 
   ngOnInit() {
   }

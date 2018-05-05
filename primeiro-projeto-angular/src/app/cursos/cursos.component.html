@@ -1,5 +1,11 @@
 <p>
-  cursos component!
+  Blog Pessoal de Gabriel Passos: {{ blogGabriel }}
 </p>
 
 <app-curso-detalhe></app-curso-detalhe>
+
+<ul>
+  <li *ngFor="let curso of cursos">  
+    {{ curso }}
+  </li>
+</ul>
