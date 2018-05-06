@@ -13,7 +13,7 @@ export class DataBindingComponent implements OnInit {
   value: string = '';
   valorSalvo;
   isMouseOver: boolean = false;
-
+ 
   constructor() { }
 
   ngOnInit() {
