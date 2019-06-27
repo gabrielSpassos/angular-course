@@ -1,16 +1,18 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../user.service";
+import {ConfirmationService} from 'primeng/api';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  styleUrls: ['./user.component.css'],
+  providers: [ConfirmationService]
 })
 export class UserComponent implements OnInit {
 
   public users = [];
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private confirmationService:ConfirmationService) {
   }
 
   ngOnInit() {
@@ -18,6 +20,7 @@ export class UserComponent implements OnInit {
   }
 
   public getUsers() {
+    this.users = [];
     let user;
     this.userService.getUsers().subscribe(
       response => {
@@ -35,10 +38,15 @@ export class UserComponent implements OnInit {
   }
 
   public deleteUser(id:string) {
-    this.userService.deleteUser(id).subscribe(
-      r => {
-        this.userService.getUsers()
+    this.confirmationService.confirm({
+      message: 'Você tem certeza que quer deletar esse usuário?',
+      accept: () => {
+        this.userService.deleteUser(id).subscribe(
+          r => {
+            this.getUsers()
+          }
+        )
       }
-    )
+    });
   }
 }

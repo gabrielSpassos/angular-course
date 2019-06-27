@@ -21,3 +21,10 @@
 <div>
   <button pButton routerLink="register" label="Registrar Usuário"></button>
 </div>
+
+<p-confirmDialog #cd header="Atenção" icon="pi pi-exclamation-triangle">
+  <p-footer>
+    <button type="button" pButton icon="pi pi-times" label="Não" (click)="cd.reject()"></button>
+    <button type="button" pButton icon="pi pi-check" label="Sim" (click)="cd.accept()"></button>
+  </p-footer>
+</p-confirmDialog>
