@@ -4,7 +4,7 @@ export class Usuario {
   public email:string;
 
   constructor() {
-    thi.id = "";
+    this.id = "";
     this.nome = "";
     this.email = "";
   }
